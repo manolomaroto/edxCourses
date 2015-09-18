@@ -1,0 +1,44 @@
+
+<html>
+	<head>
+		<title>quiz 01</title>
+		<style>
+			.highlight {
+  				background-color: yellow;
+			}
+
+			div {
+  				margin-top: 8px;
+			}
+
+			body {
+			font-family: verdana;
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<a>Question1</a>
+			<a>Question1</a>
+			<div><a>DO NOT SELECT</a></div>
+		</nav>
+		
+		<div>
+			<div class='item'>Question2</div>
+			<span class='item'>Question2</span>
+			<div class='item-group'>DO NOT SELECT</div>
+			<div class='demo'>Question3</div>
+			<span class='demo'>DO NOT SELECT</span>
+			<div class='demo'>Question3</div>
+		</div>
+
+		
+		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('div.demo').addClass('highlight');
+
+			});
+		</script>
+	</body>
+</html>
