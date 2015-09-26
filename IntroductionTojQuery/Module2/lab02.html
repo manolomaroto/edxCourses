@@ -34,7 +34,7 @@
  <h3>Rate this session</h3>
  
  <div id="rating-container" max-value="5">
-	<div class="rating-circle"></div>
+	
  
  </div>
 
@@ -49,14 +49,14 @@
  <script>
         // your answer would go here
     $(function(){
-		// I initialize two variables, one to get the index of the circle clicked and another to get the parent of the circles.
+		
 		var indice = -1;
 		var padre = $("#rating-container");
-		var clonarCirculo = $('.rating-circle').clone();
+		var clonarCirculo = "<div class='rating-circle'></div>";
 		var maxValue = $('#rating-container').attr('max-value');
 		
-		for(var i = 1; i < maxValue; i++){
-			$("#rating-container").append(clonarCirculo.clone());
+		for(var i = 0; i < maxValue; i++){
+			$("#rating-container").append(clonarCirculo);
 		}
 		
 			
@@ -65,7 +65,7 @@
 			padre.empty();
 			maxValue = $("#max-value").val();
 			for(var i = 1; i <= maxValue; i++){
-				$("#rating-container").append(clonarCirculo.clone());
+				$("#rating-container").append(clonarCirculo);
 			}
 		})
 		
