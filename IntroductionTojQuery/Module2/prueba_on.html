@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Hello jQuery</title>
+	</head>
+	<body>
+		<form>
+			<input type="button" value="Pulsa" id="b1"><br>
+			<input type="button" value="Pulsa 2" id="b2"><br>
+			<input type="button" value="Pulsa 3" id="b3"><br>
+		</form>
+		<div id="salida"></div>
+		
+		
+		<script src="../jquery-2.1.4.min.js"></script>
+		<script>
+			$(function(){
+				$('form').on("click","#b1,#b2",function(){
+					$("#salida").text("Pulsado");
+				});
+			});
+			
+		</script>
+	</body>
+</html>

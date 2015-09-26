@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>Hello jQuery</title>
+	</head>
+	<body>
+		<div>
+    <button id="button1">Button One</button>
+	<div id="container"></div>
+</div>
+<div>
+    <button id="button2">Button Two</button>
+</div>
+		<script src="../jquery-2.1.4.min.js"></script>
+		<script>
+			$(function(){
+				 $('button').on('click', function1); 
+		});
+			
+			
+			function function1() {
+   $('#container').append('<button>Click!</button>');
+ }
+			
+		</script>
+	</body>
+</html>

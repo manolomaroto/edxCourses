@@ -1,0 +1,111 @@
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <style>
+  body {
+   font-family: Verdana;
+  }
+  h1, h2, h3 {
+   color: darkblue;
+  }
+  .rating-circle {
+   height: 2em;
+   width: 2em;
+   border: .1em solid black;
+   border-radius: 1.1em;
+   display: inline-block;
+   margin: 0;
+   padding: .1em;
+  }
+
+  .rating-hover {
+   background-color: yellow;
+  }
+
+  .rating-chosen {
+   background-color: green;
+  }
+ </style>
+</head>
+<body>
+ <h1>Contoso Web Developer Conference</h1>
+ <h2>Finding elements using jQuery</h2>
+ <div>This session is about identifying elements using jQuery methods and selectors.</div>
+ <h3>Rate this session</h3>
+ 
+ <div id="rating-container" max-value="5">
+	<div class="rating-circle"></div>
+ 
+ </div>
+
+<div>
+  <label for="max-value">Enter max value:</label>
+  <input type="text" id="max-value" />
+  <button type="button" id="update-max-value">Update max value</button>
+</div>
+
+ <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.js"></script>
+
+ <script>
+        // your answer would go here
+    $(function(){
+		// I initialize two variables, one to get the index of the circle clicked and another to get the parent of the circles.
+		var indice = -1;
+		var padre = $("#rating-container");
+		var clonarCirculo = $('.rating-circle').clone();
+		var maxValue = $('#rating-container').attr('max-value');
+		
+		for(var i = 1; i < maxValue; i++){
+			$("#rating-container").append(clonarCirculo.clone());
+		}
+		
+			
+		$("#update-max-value").click(function(){
+			indice = -1;
+			padre.empty();
+			maxValue = $("#max-value").val();
+			for(var i = 1; i <= maxValue; i++){
+				$("#rating-container").append(clonarCirculo.clone());
+			}
+		})
+		
+		$("#rating-container").delegate('div','mouseenter',function(){
+			
+			// I remove the class rating-chosen if exits and then I add the class rating-hover
+			$(this).removeClass("rating-chosen").addClass("rating-hover");
+			// The same of the line before but with the previous circles
+			$(this).prevAll().removeClass("rating-chosen").addClass("rating-hover");
+			// If there are circles chosen after the circle where is the mouse, this line remove the class rating-chosen
+			$(this).nextAll().removeClass("rating-chosen");
+			
+			
+		});
+		
+		$("#rating-container").delegate('div','mouseout',function(){
+			// These lines remove the class rating-hover when the mouse is out of the circle
+			$(this).removeClass("rating-hover");
+			$(this).prevAll().removeClass("rating-hover");
+			// I check if the user has clicked before, if indice is not -1 the loop starts and adds the class rating-choosen to the circles that has this class before
+			if(indice != -1){
+				padre.children().each(function(i){
+					if(i <= indice){
+						$(this).addClass("rating-chosen");
+					}
+				})
+			}
+			
+		});
+		
+		$("#rating-container").delegate('div','click',function(){
+			// This two lines just add the class rating-choosen to the circle clicked and the previous ones.
+			$(this).addClass("rating-chosen");
+			$(this).prevAll().addClass("rating-chosen");
+			// This line get the index of the circle clicked
+			indice = $(this).index();
+			
+		})
+		  
+    });
+  </script>
+</body>
+</html>
