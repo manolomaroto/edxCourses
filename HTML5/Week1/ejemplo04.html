@@ -1,83 +1,24 @@
 <!doctype html>
 <html lang="es">
     <head>
+        <title>Comprobando la accesibilidad</title>
         <meta charset="utf-8">
-        <title>Simple HTML blog</title>
-        <script src="script.js"></script>
-        <link rel="stylesheet" href="blog.css">
+        
     </head>
     <body>
-        <header>
-            <h1>Simple <span>HTML5</span> blog</h1>
-        </header>
-
-        <nav>
-            <h2>Navigation menu</h2>
-            <ul>
-                <li><span>Blog</span> </li>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>This is an example of embedded table of content</h1>
         <section>
-            <article>
-                <header>
-         <h2><a href="">Information about this example</a></h2>
-         This example is a modified version of <a
-              href="http://netstream.ru/htmlsamples/html5-blog/index.html">
-         http://netstream.ru/htmlsamples/html5-blog/index.html</a>
-     </header>
-     <p>Try to move the mouse on different elements. The structure will be
-     highlighted and you will be able
-     to see the different inclusions of elements one in each other. If you
-     move the cursor to this sentence, it will be highlighted in dark grey,
-     showing the presence of an &lt;article&gt; element, surrounded by a
-     &lt;section&gt; element (light grey), etc. So we have some articles in
-     a single section element. The page title at the top is a &lt;header&gt;
-     element, while the tag cloud on the right is a &lt;aside&gt; element. The
-     main menu on top (with Blog, About, Contact) is a &lt;nav&gt; element.</p>
-     <figure>
-         <img src="http://www.fredcavazza.net/files/2009/09/html5_structure.png"
-             alt="Example of HTML5 structural tags" />
-         <figcaption>
-             Fig. 1 : an example of how new structural elements could
-             be used. This page put a &lt;nav&gt; on top, and does not have
-             headers and footer for each article, like in this figure,
-             but it could... By the way this is a
-             &lt;figcaption&gt; inside a &lt;figure&gt; element...
-         </figcaption>
-    </figure>
-            </article>
-            <article id="id1">
-                <section id="id1part1">
-                    <h2>Introduction</h2>
-                </section>
-                <section id="id1part2">
-                    <h2>My travel to Albacete</h2>
-                </section>
-                <section id="id1part3">
-                    <h2>Return to Cuenca</h2>
-                </section>
-            </article>
-            <article>
-                <header>
-                    <h1>Blog post title</h1>
-                    <p>Author: Michel</p>
-                </header>
-                <nav>
-                    <ul>
-                        <li><a href="">Next post</a></li>
-                        <li><a href="">Previous post</a></li>
-                        <li><a href="">Contact author</a></li>
-                    </ul>
-                </nav>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum error soluta quos adipisci, facilis, placeat ullam sed eum vel, facere ea doloremque minima fuga molestias vitae quam dolor architecto maxime?</p>
-                <footer>
-                    <p>Posted by Manolo <time datatime="2012-02-02"></time>February 2, 2012</p>
-                </footer>
-            </article>
-</section>
-
+            <header>
+                <h1>first section of a document (this is a h1)</h1>
+                This is a subheading
+            </header>
+            <h2>first subcetion of the first section (a h2)</h2>
+            <p>Blah blah</p>
+        </section>
+        <section>
+            <h1>Second section of the document (a h1)</h1>
+            <h2>First subsection (a h2)</h2>
+        </section>
         <aside>
             <h3>Table of contents</h3>
             <a href="javascript:(function(){var i=function(a){this.sections=[];this.startingNode=a};i.prototype={heading:false,append:function(a){a.container=this;this.sections.push(a)},asHTML:function(a){var b=u(this.heading);if(a)b='&lt;a href=&quot;#'+v(this.startingNode)+'&quot;&gt;'+b+&quot;&lt;/a&gt;&quot;;return b+q(this.sections,a)}};var q=function(a,b){for(var f=&quot;&quot;,c=0;c&lt;a.length;c++)f+=&quot;&lt;li&gt;&quot;+a[c].asHTML(b)+&quot;&lt;/li&gt;&quot;;return f==&quot;&quot;?f:&quot;&lt;ol&gt;&quot;+f+&quot;&lt;/ol&gt;&quot;},r=function(a){a=a.heading;return h(a)?j(a):1},u=function(a){if(h(a)){if(k(a)==&quot;HGROUP&quot;)a=a.getElementsByTagName(&quot;h&quot;+
@@ -89,16 +30,5 @@
             b(a.getElementsByTagName(&quot;ol&quot;),&quot;margin: 0;padding:0;font-size:11px;font-family:Verdana, sans-serif;&quot;);b(a.getElementsByTagName(&quot;a&quot;),&quot;color:#008;text-decoration:underline;font-size:11px;font-family:Verdana, sans-serif;&quot;);var c=a.insertBefore(document.createElement(&quot;a&quot;),a.firstChild);b([c],&quot;float: right; margin: 0 0 5px 5px; padding: 5px; border: 1px #008 solid;color:#00f;background-color:#ccf;&quot;);c.innerHTML=&quot;Close&quot;;c.href=&quot;#&quot;;c.onclick=function(){document.body.removeChild(a);a=c=null};document.body.appendChild(a)})();
             ;" title="TableDeMatiere">Click here for displaying the table of contents!</a></h1>
         </aside>
-        <aside>
-            <h2>Tag cloud</h2>
-            <ul class="tag-cloud">
-                <li><a href="" rel="tag" class="w2">Ajax</a></li>
-                <li><a href="" class="w8" rel="tag">apple</a></li>
-                <li><a href="" class="w3" rel="tag">css</a></li>
-            </ul>
-        </aside>
-        <footer>
-            <p>&copy; 2009 Some blog</p>
-        </footer>
     </body>
 </html>
