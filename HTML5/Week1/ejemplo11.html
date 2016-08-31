@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta name="description" content="HTML5 detail summary example (polyfill: codepen.io/w3devcampus/pen/GJrQzP)">
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+    <link rel="stylesheet" href="css/ejemplo11.css">
+  </head>
+  <body>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <details id="example1" aria-label="information">
+      <summary tabindex="0"  aria-controls="example1">
+        HTML5 detail/summary 
+      </summary>
+      <div>
+        Content
+        <ul style="font-size: large;">
+          <li>This is the content of the first &lt;detail&gt; element</li>
+        </ul>
+        <details id="example2"  aria-label="information">
+          <summary tabindex="0"  aria-controls="example2">Nested <code>&lt;detail&gt;</code> element</summary>
+          <div>
+            Nested content.
+            <ul style="font-size: large;">
+              <li>Content of nested &lt;detail&gt;</li>
+            </ul>
+          </div>
+        </details>
+        </div>
+      </details>
+    <details id="example3" aria-label="information">
+      <summary tabindex="0"  aria-controls="example3">2nd top-level <code>&lt;detail&gt;</code> element</summary>
+      <div>
+        Content.
+      </div>
+      </details>
+      <details id="example4" aria-label="information">
+        <summary tabindex="0"  aria-controls="example4">3rd top-level <code>&lt;detail&gt;</code> element</summary>
+        <div>
+          Content.
+        </div>
+      </details>
+
+      <script>
+
+function supports_details() {
+  return ('open' in document.createElement('details'));  
+}
+
+
+$(document).ready(function(){
+  $("details summary").attr("aria-expanded", function(){ 
+    return $(this).parent("details").is("[open]") ? "true" : "false";
+  })
+
+  if (!supports_details()) {
+    $("details").addClass("no-det");
+  }
+
+  $('details summary').keypress(function(event) {
+    if ( event.which == 13||event.which == 32 ) {
+      $(this).click();
+    }
+  }).click(function() {
+    var $summary = $(this);
+    var $details = $summary.parent();
+      if ($details.attr("open")) {
+        if ($details.hasClass("no-det")) {
+          $details.removeAttr("open");
+        }
+        $summary.attr("aria-expanded", "false");
+      }
+      else {
+        if ($details.hasClass("no-det")) {
+          $details.attr("open", "open");
+        }
+        $summary.attr("aria-expanded", "true");
+      }
+  }); 
+});
+  
+$(document).ready(function(){
+  $("label").click(function(event){
+    event.stopPropagation();
+  // alert("The span element was clicked.");
+  });
+});
+</script>
+  
+</body>
+</html>

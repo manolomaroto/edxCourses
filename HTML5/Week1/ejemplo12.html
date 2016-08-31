@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <title>microdata</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Ejemplos de uso de itemscope, itemtype y itemprop</h1>
+        <section itemscope itemtype="http://schema.org/Person">
+            <h1>Contact Information</h1>
+            <dl>
+                <dt>Name</dt>
+                <dd itemprop="name">Manuel González</dd>
+                <dt>Position</dt>
+                <dd>
+                    <span itemprop="jobTitle">
+                        Web Developer/Job searcher
+                    </span> for
+                    <span itemprop="affiliation">
+                        The Bigest Company in Spain, unemployed.
+                    </span>
+                </dd>
+            </dl>
+            <ul>
+                <li><a href="http://www.twiter.com/manuelgmaroto" itemprop="url">Twitter profile</a></li>
+            </ul>
+        </section>
+    </body>
+</html>

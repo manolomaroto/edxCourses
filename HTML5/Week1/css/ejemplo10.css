@@ -1,0 +1,9 @@
+summary::-webkit-details-marker{
+    color: #f00;
+    background: #fff;
+}
+
+details[open] summary::-webkit-details-marker{
+    color: #00f;
+    background: #0ff;
+}
